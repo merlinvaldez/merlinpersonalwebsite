@@ -26,6 +26,7 @@ nav {
 nav a {
   color: white;
   padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 
 nav a:hover {
@@ -68,12 +69,18 @@ figcaption {
 }
 
 figure img {
-  border-radius: 10rem;
+  border-radius: 5rem;
+  width: 100%;
+  height: auto;
 }
 
 @media (max-width: 850px) {
-  .hide-on-mobile {
+  .gif {
     display: none;
+  }
+  #about-me p {
+    display: block;
+    width: 100%;
   }
 }
 
