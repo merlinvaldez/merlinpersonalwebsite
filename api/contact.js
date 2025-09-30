@@ -1,4 +1,13 @@
 import { Resend } from "resend";
+
+const contactForm = document.getElementById("contactForm");
+const sendButton = document.getElementById("sendButton");
+const formStatus = document.getElementById("formStatus");
+
+function setStatus(message) {
+  formStatus.textContent = message;
+}
+
 export default async function handler(request, response) {
   if (request.method !== "POST") {
     return response.status(405).end();
@@ -57,4 +66,54 @@ export default async function handler(request, response) {
       visitorMessage,
     },
   });
+}
+
+contactForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(contactForm);
+  const firstName = formData.get("first_name" || "");
+  const lastName = formData.get("last_name" || "");
+  const email = formData.get("email" || "");
+  const message = formData.get("message" || "");
+  const website = formData.get("website" || ""); //this is for the honeypot
+  const payload = {
+    name: `${firstName} ${lastName}`.trim(),
+    email,
+    message,
+    website,
+  };
+});
+
+setStatus("Sending...");
+sendButton.disabled = true;
+
+try {
+  const response = await fetch("/api/contact.js", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  const text = await response.text();
+  let data = null;
+  try {
+    data = JSON.parse(text);
+  } catch {}
+  if (response.ok && data?.ok) {
+    setStatus("Thanks! Your message was sent.");
+    contactForm.reset();
+  } else if (response.status === 400) {
+    setStatus(data?.error || "Please check your inputs and try again.");
+  } else if (response.status === 405) {
+    setStatus("This endpoint only accepts POST requests.");
+  } else {
+    setStatus("Sorry, something went wrong. Please try again.");
+    console.error("Server response:", response.status, text);
+  }
+} catch (networkError) {
+  setStatus("Network error. Check your connection and try again.");
+  console.error("Network error:", networkError);
+} finally {
+  sendButton.disabled = false;
 }
