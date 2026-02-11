@@ -1,71 +1,36 @@
-# Merlin Valdez Personal Website
+﻿# Merlin Valdez Personal Website
 
-## Project Overview
+## Overview
+This repository powers **merlinvaldez.com**, a modern portfolio built with Next.js (App Router) and Tailwind CSS. It highlights my work as a software engineer, solutions engineer, and product manager across civic tech and AI-enabled education.
 
-This repository contains the code for my personal website [merlinvaldez.com](https://merlinvaldez.com), showcasing my journey from education to tech entrepreneurship and software development. The site was built as part of my Fullstack Academy Web Developer Certification and serves as a portfolio of my skills, experience, and projects.
+## Project Story
+I coded the v1 version of this site using vanilla HTML and CSS. After graduating from Fullstack Academy and shifting focus to other projects, I used Codex to modernize and update the site with Next.js and Tailwind so I can focus more time on designing strong business logic for projects currently in development.
+
+> Legacy note: v1 static files are still kept in this repo for reference.
 
 ## Technical Stack
-
-- **Frontend**: Semantic HTML5, Vanilla CSS with responsive design
+- **Framework**: Next.js (App Router) + React (JavaScript only)
+- **Styling**: Tailwind CSS
 - **Deployment**: Vercel with custom domain and DNS configuration
-- **Version Control**: Git/GitHub with structured commit workflow
-- **Planning**: Content strategy documented in comments and planning docs
-
-## Key Features
-
-- **Responsive Design**: Mobile-friendly layout with thoughtful breakpoints
-- **Accessibility**: Screen reader compatibility with proper semantic markup
-- **Performance**: Optimized assets and minimal dependencies
-- **Content Organization**: Structured information architecture focusing on professional narrative
-
-## Development Approach
-
-I approached this project with a focus on foundational web development skills and professional deployment practices:
-
-1. **Content-First Strategy**: Outlined key sections and narrative flow before implementation
-2. **Clean HTML Structure**: Semantic elements for improved accessibility and SEO
-3. **CSS Organization**: Modular stylesheets with consistent naming conventions
-4. **Responsive Design**: Mobile-friendly layouts that adapt to different screen sizes
-5. **Professional Workflow**: Git-based version control with meaningful commits
-6. **Real-World Deployment**: Configured DNS, SSL, and production environment on Vercel
-
-## Featured Projects
-
-The site highlights my key projects:
-
-- **Planningperiod.io**: AI-powered curriculum design tool (Co-founder/Head of Product)
-- **AnychangeAI**: Document transformation with AI (In Development)
-- **This Website**: Demonstrating front-end development fundamentals
-
-## Future Enhancements
-
-This is version 1.0 of my personal site. Planned enhancements include:
-
-- **Design System**: Implementing Tailwind CSS for more consistent styling
-- **Interactivity**: Adding JavaScript for improved user experience
-- **Animation**: Subtle motion design to enhance content engagement
-- **Performance Optimization**: Further improvements to loading speed and resource usage
+- **Version Control**: Git/GitHub
 
 ## Local Development
-
 ```bash
-# Clone the repository
-git clone https://github.com/merlinvaldez/merlinpersonalwebsite.git
+# Install dependencies
+npm install
 
-# Navigate to directory
-cd merlinpersonalwebsite
+# Start dev server
+npm run dev
 
-# Open in browser (no build step needed for HTML/CSS)
-open index.html
+# Build for production
+npm run build
+
+# Run production build locally
+npm run start
 ```
 
 ## Contact
-
-Feel free to reach out for collaboration or employment opportunities:
-
-- **Website**: [merlinvaldez.com](https://merlinvaldez.com)
-- **Schedule a meeting**: Available through the [contact page](https://merlinvaldez.com/contact.html)
-
----
-
-© 2025 Merlin Valdez and Fahami Valdez Learning Services
+- **Website**: merlinvaldez.com
+- **Email**: merlinvaldez@gmail.com
+- **LinkedIn**: linkedin.com/in/merlinvaldez
+- **GitHub**: github.com/merlinvaldez
