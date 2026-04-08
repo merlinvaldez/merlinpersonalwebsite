@@ -1,15 +1,15 @@
 ﻿import Section from "@/components/Section";
 
 const strengths = [
-  "Product sense that connects user pain to practical roadmaps.",
-  "Shipping discipline with clear scope, QA habits, and iteration loops.",
-  "Client-facing execution across partnerships, training, and delivery.",
+  "Product framing that turns ambiguous user problems into tractable systems.",
+  "Full-stack execution across frontend, backend, data flows, and AI workflow design.",
+  "Founder-style iteration with clear scope, QA habits, and customer-facing communication.",
 ];
 
 const interests = [
-  "AI for education that improves outcomes, not just output volume.",
-  "Civic tech that helps people engage with public systems and policy.",
-  "Tools that make complex workflows feel simple and trustworthy.",
+  "Civic products that make public systems more understandable and actionable.",
+  "Language and communication tools that preserve trust, clarity, and identity.",
+  "AI workflow systems where source quality, evaluation, and UX all matter.",
 ];
 
 const partners = [
@@ -64,7 +64,7 @@ const quotes = [
 
 export const metadata = {
   title: "About",
-  description: "Background, strengths, partners, and social proof for Merlin Valdez.",
+  description: "Current background, strengths, partners, and social proof for Merlin Valdez.",
 };
 
 export default function AboutPage() {
@@ -74,16 +74,15 @@ export default function AboutPage() {
         <div className="space-y-4">
           <h1 className="text-3xl font-semibold text-slate-900">About</h1>
           <p className="max-w-3xl text-sm text-slate-600">
-            I started my career in education, helping schools design learning experiences that honored student identity.
-            That work grew into entrepreneurship, where I co-founded PlanningPeriod.io and built product systems to help
-            teachers design community-centered curriculum at scale. Along the way, I fell in love with software
-            development and committed to building human-centered technology as a software engineer, solutions engineer,
-            and product leader.
+            I came into engineering through education and entrepreneurship. Before working as a full-stack engineer, I was
+            designing learning experiences, building partnerships, and co-founding PlanningPeriod.io, where product
+            strategy and AI workflow design had to work together in the real world.
           </p>
           <p className="max-w-3xl text-sm text-slate-600">
-            Today I focus on shipping products that connect research, user feedback, and technical execution - especially
-            in civic tech and AI for education. I blend product strategy with hands-on engineering to deliver systems that
-            are reliable, measurable, and useful.
+            Today my work is centered on product systems: VoteFeed in production, PrimeMatcher and StringPhone in active
+            development, and the kinds of civic, language, and AI-enabled workflows that require both technical execution
+            and strong product judgment. I am most useful when the job is to define the right workflow, build the system,
+            and iterate based on what people actually need.
           </p>
         </div>
       </Section>
@@ -131,7 +130,9 @@ export default function AboutPage() {
           <div className="mt-6 grid gap-4 lg:grid-cols-2">
             {quotes.map((quote) => (
               <blockquote key={quote.name} className="rounded-xl border border-slate-200 bg-white px-4 py-3">
-                <p className="text-sm text-slate-600">"{quote.quote}"</p>
+                <p className="text-sm text-slate-600">
+                  &ldquo;{quote.quote}&rdquo;
+                </p>
                 <p className="mt-2 text-xs font-semibold text-slate-700">
                   - {quote.name}, {quote.title}
                 </p>

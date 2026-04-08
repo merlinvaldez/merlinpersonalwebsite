@@ -12,11 +12,11 @@ export const metadata = {
     template: "%s | Merlin Valdez",
   },
   description:
-    "Software engineer, solutions engineer, and product leader building civic and learning tools.",
+    "Software engineer and product builder shipping civic, language, and AI-enabled workflow tools.",
   openGraph: {
     title: "Merlin Valdez",
     description:
-      "Software engineer, solutions engineer, and product leader building civic and learning tools.",
+      "Software engineer and product builder shipping civic, language, and AI-enabled workflow tools.",
     url: "/",
     siteName: "Merlin Valdez",
     type: "website",

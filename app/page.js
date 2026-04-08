@@ -1,10 +1,13 @@
-﻿import Section from "@/components/Section";
+import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import ButtonLink from "@/components/ButtonLink";
 import IconBadge from "@/components/IconBadge";
-import { projects } from "@/content/projects";
+import { getProjectsByStatus } from "@/content/projects";
 
-const featuredProjects = projects.filter((project) => project.featured);
+const productionProject = getProjectsByStatus("in-production")[0];
+const inDevProjects = getProjectsByStatus("in-dev");
+const pastProjects = getProjectsByStatus("past-work");
+const featuredProjects = [productionProject, ...inDevProjects, ...pastProjects];
 
 const skills = [
   { label: "JavaScript", icon: "/icons/skills/javascript.svg" },
@@ -53,6 +56,24 @@ const certifications = [
   },
 ];
 
+const currentItems = [
+  {
+    title: "VoteFeed",
+    status: "In production",
+    detail: "Shipping legislative freshness, bill-result context, and trust surfaces.",
+  },
+  {
+    title: "PrimeMatcher",
+    status: "In development",
+    detail: "Defining the first workflow for capabilities statement upload and prime matching.",
+  },
+  {
+    title: "StringPhone",
+    status: "In development",
+    detail: "Scoping v1 around voice cloning, translation, and turn-based conversation.",
+  },
+];
+
 const quotes = [
   {
     quote:
@@ -78,18 +99,17 @@ export default function Home() {
   return (
     <div className="space-y-20 pb-24 pt-12">
       <Section className="pt-4">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div className="space-y-6">
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
-                Software Engineer | Solutions Engineer | Product Manager
+                Software Engineer | Product Builder | Solutions Engineer
               </p>
               <h1 className="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
                 Merlin Valdez
               </h1>
-              <p className="text-lg text-slate-600">
-                Former education entrepreneur turned SWE, building civic and learning tools with full-stack products, clear
-                roadmaps, and measurable outcomes.
+              <p className="text-lg leading-8 text-slate-600">
+                Building civic, language, and AI-enabled products with full-stack execution, clear product framing, and strong iteration loops.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -105,16 +125,18 @@ export default function Home() {
                 View projects
               </ButtonLink>
             </div>
-            <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-6 py-4 text-sm font-semibold text-slate-700">
-              JavaScript / SQL / Python
+            <div className="rounded-2xl border border-slate-200/80 bg-white/85 px-6 py-4 text-sm font-semibold text-slate-700 shadow-sm">
+              JavaScript / SQL / Python / AI workflow systems
             </div>
           </div>
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white/80 shadow-lg">
+            <div className="absolute -left-6 top-8 h-32 w-32 rounded-full bg-teal-200/40 blur-3xl" />
+            <div className="absolute -bottom-6 right-6 h-28 w-28 rounded-full bg-amber-200/50 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/85 p-3 shadow-xl">
               <img
                 src="/images/merlin-founder-photo-2.jpg"
                 alt="Merlin Valdez"
-                className="h-full w-full object-cover"
+                className="h-full w-full rounded-[1.5rem] object-cover"
               />
             </div>
           </div>
@@ -123,33 +145,40 @@ export default function Home() {
 
       <Section>
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm">
+          <div className="rounded-[2rem] border border-slate-200/80 bg-white/85 p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-slate-900">Featured projects</h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Recent work centered on civic engagement and AI-powered learning infrastructure.
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">
+              Updated around what is current now: VoteFeed in production, PrimeMatcher and StringPhone in development, and PlanningPeriod as foundational past work.
             </p>
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
+              {featuredProjects.map((project, index) => (
+                <div key={project.slug} className={index === 0 ? "md:col-span-2" : ""}>
+                  <ProjectCard project={project} />
+                </div>
               ))}
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm">
+            <div className="rounded-[2rem] border border-slate-200/80 bg-white/85 p-6 shadow-sm">
               <h2 className="text-xl font-semibold text-slate-900">Currently</h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Program Manager, The Knowledge House (Dec 2025 - Present)
-              </p>
-              <p className="mt-2 text-sm text-slate-600">
-                Building VoteFeed.org to make constituent engagement with Congress more transparent.
-              </p>
+              <div className="mt-4 space-y-4 text-sm text-slate-600">
+                {currentItems.map((item) => (
+                  <div key={item.title} className="rounded-xl border border-slate-200/80 bg-white px-4 py-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      {item.status}
+                    </p>
+                    <p className="mt-1 text-base font-semibold text-slate-900">{item.title}</p>
+                    <p className="mt-2 leading-6 text-slate-600">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-6 shadow-sm">
+            <div className="rounded-[2rem] border border-slate-200/80 bg-white/85 p-6 shadow-sm">
               <h2 className="text-xl font-semibold text-slate-900">Social proof</h2>
               <div className="mt-4 space-y-4 text-sm text-slate-600">
                 {quotes.map((quote) => (
-                  <blockquote key={quote.name} className="rounded-xl border border-slate-200 bg-white px-4 py-3">
-                    <p>"{quote.quote}"</p>
+                  <blockquote key={quote.name} className="rounded-xl border border-slate-200 bg-white px-4 py-4">
+                    <p>&ldquo;{quote.quote}&rdquo;</p>
                     <p className="mt-2 text-xs font-semibold text-slate-700">
                       - {quote.name}, {quote.title}
                     </p>
@@ -166,7 +195,7 @@ export default function Home() {
           <div>
             <h2 className="text-2xl font-semibold text-slate-900">Technical skills</h2>
             <p className="mt-2 text-sm text-slate-600">
-              Tools and technologies I use to ship reliable software and data-driven products.
+              Tools and technologies I use to ship software, data systems, and AI-assisted product workflows.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -182,7 +211,7 @@ export default function Home() {
           <div>
             <h2 className="text-2xl font-semibold text-slate-900">Certifications</h2>
             <p className="mt-2 text-sm text-slate-600">
-              Credentials that complement my SWE, solutions engineering, and product delivery work.
+              Credentials that support my engineering, product delivery, and operator-level execution.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -200,10 +229,10 @@ export default function Home() {
       </Section>
 
       <Section>
-        <div className="rounded-2xl border border-slate-200/80 bg-white/80 p-8 text-center shadow-sm">
-          <h2 className="text-2xl font-semibold text-slate-900">Let's build what matters.</h2>
-          <p className="mt-3 text-sm text-slate-600">
-            I partner with mission-driven teams to design, build, and ship products that drive measurable outcomes.
+        <div className="rounded-[2rem] border border-slate-200/80 bg-white/85 p-8 text-center shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-900">Let&apos;s build what matters.</h2>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            I work with mission-driven teams and early-stage products that need strong product judgment and hands-on full-stack execution.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-3">
             <ButtonLink href="/contact">Contact</ButtonLink>
