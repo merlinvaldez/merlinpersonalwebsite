@@ -54,7 +54,7 @@
 }
 
 .home-title-list li:hover,
-.home-skills-grid img:hover,
+.home-skill-badge:hover,
 .home-certifications-grid img:hover {
   transform: scale(1.05);
 }
@@ -65,17 +65,50 @@
 
 .home-skills-grid {
   display: grid;
-  gap: 2rem 5ch;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  place-items: center;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   width: 100%;
 }
 
-.home-skills-grid img,
+.home-skill-badge {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 236, 236, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 1.1rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  justify-content: center;
+  margin: 0;
+  min-height: 9.75rem;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.home-skill-badge img,
+.home-skill-badge svg,
 .home-certifications-grid img {
   display: block;
   height: auto;
   transition: transform 0.2s ease;
+}
+
+.home-skill-badge img,
+.home-skill-badge svg {
+  height: clamp(3rem, 10vw, 4.5rem);
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.home-skill-badge figcaption {
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .home-certifications-grid {
@@ -96,14 +129,12 @@
     padding-right: 0;
   }
 
-  .home-skills-grid,
   .home-certifications-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 560px) {
-  .home-skills-grid,
   .home-certifications-grid {
     grid-template-columns: 1fr;
   }

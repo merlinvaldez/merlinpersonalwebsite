@@ -4,7 +4,7 @@ const navigationLinks = [
   { label: 'Home', to: '/' },
   { label: 'About Me', to: '/about' },
   { label: 'Portfolio', to: '/portfolio' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Connect', to: '/connect' },
 ]
 
 function SiteLayout() {

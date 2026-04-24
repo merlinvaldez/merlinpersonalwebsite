@@ -33,9 +33,8 @@ I approached this project with a focus on foundational web development skills an
 
 The site highlights my key projects:
 
-- **Planningperiod.io**: AI-powered curriculum design tool (Co-founder/Head of Product)
-- **AnychangeAI**: Document transformation with AI (In Development)
-- **This Website**: Demonstrating front-end development fundamentals
+- **votefeed**: Civic product for tracking representative voting activity
+- **stringphone**: In-development voice product for transcription, translation, and voice workflows
 
 ## Future Enhancements
 

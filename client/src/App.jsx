@@ -15,7 +15,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="portfolio" element={<PortfolioPage />} />
-          <Route path="contact" element={<ContactPage />} />
+          <Route path="connect" element={<ContactPage />} />
+          <Route path="contact" element={<Navigate replace to="/connect" />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Route>
       </Routes>
