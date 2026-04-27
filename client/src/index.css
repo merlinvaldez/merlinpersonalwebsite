@@ -47,36 +47,63 @@ img {
   min-height: 100vh;
 }
 
+.site-header {
+  position: relative;
+  z-index: 2;
+}
+
 .site-nav {
-  background-color: #555;
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(23, 29, 38, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22);
   display: flex;
-  font-size: 1.5rem;
-  font-weight: bold;
-  justify-content: space-around;
-  left: 0;
-  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  justify-content: center;
+  left: 50%;
+  letter-spacing: 0.02em;
+  max-width: calc(100% - 2rem);
+  padding: 0.75rem;
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 1rem;
+  transform: translateX(-50%);
+  width: max-content;
   z-index: 10;
 }
 
 .site-nav a {
-  border-radius: 10rem;
+  border-radius: 999px;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1.1rem;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .site-nav a:hover,
 .site-nav a.active {
-  background-color: #777;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.08)
+  );
+}
+
+.site-nav a:hover {
+  transform: translateY(-1px);
 }
 
 .site-main {
-  padding-bottom: 5rem;
-  padding-top: 5rem;
+  margin: 0 auto;
+  max-width: 84rem;
+  padding: 7.5rem 0 7rem;
+  width: 100%;
 }
 
 .page {
@@ -99,31 +126,45 @@ img {
 }
 
 .site-footer {
-  background-color: #555;
+  backdrop-filter: blur(16px);
+  background: rgba(23, 29, 38, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   bottom: 0;
   color: #fff;
   display: flex;
-  font-size: 1rem;
+  font-size: 0.92rem;
   justify-content: center;
-  left: 0;
-  padding: 1rem;
+  left: 50%;
+  max-width: calc(100% - 2rem);
+  padding: 0.9rem 1.4rem;
   position: fixed;
+  transform: translateX(-50%);
   text-align: center;
-  width: 100%;
+  width: max-content;
+  z-index: 10;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 @media (max-width: 700px) {
   .site-nav {
-    font-size: 1rem;
+    font-size: 0.88rem;
     gap: 0.25rem;
-    padding-inline: 0.5rem;
+    max-width: calc(100% - 1rem);
+    padding-inline: 0.35rem;
   }
 
   .site-nav a {
-    padding-inline: 0.5rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .site-main {
+    padding: 6.75rem 0 6rem;
   }
 
   .site-footer {
-    font-size: 0.8rem;
+    font-size: 0.74rem;
+    max-width: calc(100% - 1rem);
+    padding-inline: 1rem;
   }
 }
